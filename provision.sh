@@ -4,10 +4,10 @@ apt-get -y update
 # Install nginx
 apt-get -y install nginx
 
-# Repoint www root folder
-rm -rf /var/www/html
-ln -s /vagrant/www/html /var/www/html
+# Updates the site configuration 
+rm -rf /etc/nginx/sites-enabled
+cp -r /vagrant/sites-enabled /etc/nginx
 
 # Start nginx service
-service nginx start
+service nginx reload
 
